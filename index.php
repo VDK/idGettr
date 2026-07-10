@@ -17,7 +17,16 @@ if (!empty($_GET['lookup']) || !empty($_GET['url'])) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Flickr Username → User ID</title>
+<title>idGettr — Flickr Username → User ID</title>
+<meta name="description" content="Look up a Flickr user's NSID from their username or profile URL.">
+<meta name="author" content="Vera de Kok">
+<meta property="og:title" content="idGettr — Flickr Username → User ID">
+<meta property="og:description" content="Look up a Flickr user's NSID from their username or profile URL.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://veertje.toolforge.org/idGettr/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="idGettr — Flickr Username → User ID">
+<meta name="twitter:description" content="Look up a Flickr user's NSID from their username or profile URL.">
 <link rel="stylesheet" href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
 <style>
   body { background: #f8f9fa; }
@@ -165,7 +174,7 @@ if (!empty($_GET['lookup']) || !empty($_GET['url'])) {
     </div>
   </div>
   <footer class="idgettr-footer">
-    <a href="https://github.com/VDK/idGettr">idGettr</a> · made by <a href="https://github.com/VDK">VDK</a> · <a href="https://github.com/VDK/idGettr/issues">report an issue</a>
+    <a href="https://github.com/VDK/idGettr">idGettr</a> · made by <a href="https://github.com/VDK">Vera de Kok</a> · <a href="https://github.com/VDK/idGettr/issues">report an issue</a>
   </footer>
 </div>
 <script>
