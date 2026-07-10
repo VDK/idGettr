@@ -1,7 +1,18 @@
 <?php
 $api_key = getenv('FLICKR_API_KEY') ?: require __DIR__ . '/config.php';
-?>
-<!DOCTYPE html>
+
+if (!empty($_GET['lookup']) || !empty($_GET['url'])) {
+    header('Content-Type: application/json');
+    $base = 'https://api.flickr.com/services/rest/?api_key=' . $api_key . '&format=json&nojsoncallback=1';
+    if (!empty($_GET['url'])) {
+        $url = $base . '&method=flickr.urls.lookupUser&url=' . urlencode($_GET['url']);
+    } else {
+        $url = $base . '&method=flickr.people.findByUsername&username=' . urlencode($_GET['lookup']);
+    }
+    echo file_get_contents($url);
+    exit;
+}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -175,20 +186,9 @@ document.getElementById('lookupForm').addEventListener('submit', function (e) {
   resultText.textContent = 'Looking up\u2026';
   outputEl.style.display = 'none';
 
-  var url;
-  if (isUrl) {
-    url = 'https://api.flickr.com/services/rest/'
-      + '?method=flickr.urls.lookupUser'
-      + '&api_key=<?php echo $api_key; ?>'
-      + '&url=' + encodeURIComponent(raw)
-      + '&format=json&nojsoncallback=1';
-  } else {
-    url = 'https://api.flickr.com/services/rest/'
-      + '?method=flickr.people.findByUsername'
-      + '&api_key=<?php echo $api_key; ?>'
-      + '&username=' + encodeURIComponent(username)
-      + '&format=json&nojsoncallback=1';
-  }
+  var url = isUrl
+    ? '?url=' + encodeURIComponent(raw)
+    : '?lookup=' + encodeURIComponent(username);
 
   fetch(url)
     .then(function (r) { return r.json(); })
