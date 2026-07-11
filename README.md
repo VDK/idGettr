@@ -6,7 +6,7 @@ Look up a Flickr user's NSID from their username or profile URL.
 
 ## Usage
 
-Enter a Flickr username (e.g. `veer`) or profile URL (e.g. `https://www.flickr.com/people/veer/`) and get back the user's NSID. The NSID can be copied to clipboard with one click.
+Enter a Flickr username (e.g. `1Veertje`) or profile URL (e.g. `https://www.flickr.com/people/1Veertje/`) and get back the user's NSID. The NSID can be copied to clipboard with one click.
 
 ## Development
 
